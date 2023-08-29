@@ -1,27 +1,24 @@
 <?php
+session_start();
 
 include("classes/connect.php");
-include("classes/signup.php");
-$first_name="";
-$last_name="";
-$gender="";
+include("classes/login.php");
+
 $email="";
+$password="";
 
 if($_SERVER['REQUEST_METHOD']  == 'POST')
 {
-  $signup= new Signup();
-  $result = $signup->evaluate($_POST);
+  $login= new Login();
+  $result = $login->evaluate($_POST);
  if($result !=""){
      echo $result;
  }
  else
  {
-  header("location:login.php");
+  header("location:profile.php");
   die;
  }
-   $first_name=$_POST['first_name'];
-   $last_name=$_POST['last_name'];
-   $gender=$_POST['gender'];
    $email=$_POST['email'];
    $password=$_POST['password'];
 }
@@ -36,8 +33,8 @@ if($_SERVER['REQUEST_METHOD']  == 'POST')
   </head>
   <style>
   #photo{
-            margin-top: 10px;
-            margin-left: 7px;    
+         margin-top: 10px;
+         margin-left: 7px;    
         height: 75px;
         width: 75px;
         }
@@ -94,41 +91,28 @@ if($_SERVER['REQUEST_METHOD']  == 'POST')
   <body style="font-family:tahoma;background-color: #e9ebee;">
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" >
         <div class="container-fluid">
-          <a class="navbar-brand" href="home.html" ><img src="logo.jpg" style="width: 5rem; height: 5rem;" alt="logo"></a>
+          <a class="navbar-brand" href="Social Link.html" ><img src="logo.jpg" style="width: 5rem; height: 5rem;" alt="logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <button class="btn btn-outline-success" type="submit">Log in</button>
+              <button class="btn btn-outline-success">Sign up</button>
             </form>
           </div>
         </div>
       </nav>
-      <div class="container">
-        <div class="row">
-            <div class="col-xl-4 col-md-2 col-1 vartical-line bg-sucess" ></div>
-            <div class="col-xl-4 col-md-2 col-1 vartical-line bg-primary" ></div>
-            <div class="col-xl-4 col-md-2 col-1 vartical-line bg-sucess"  ></div>
-        </div>
-      </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-         <div id="page">
-         </a><h3>Sign up to Social Link</h3><br><br>
-         <form action="" method="post">
-          <input  name="first_name" type="text" id="text" placeholder="First name" required><br><br>
-          <input  name="last_name"  type="text" id="text" placeholder="Last name" required><br><br>       
-          <select name="gender" id="text" required>
-              <option ></option>
-              <option>Male</option>
-              <option>Female</option>
-          </select><br><br>
-          <input  name="email"  type="text" id="text" placeholder="email or phone number" required><br><br>
-          <input name="password"  type="password" id="text"placeholder="Password" required><br><br>
-          <input type="password2" id="text"placeholder="Comfirm Password" required><br><br>
-          <button class="btn btn-outline-success" type="submit" id="text">Sign up</button>
-              </form>
-             </div>
-  </body>
-  </body>
+    <div id="page">
+      <form method="post">
+    </a><h3 style="color:rgba(0, 0, 0, 0.688)">Log in to Social Link</h3><br><br>
+        <input name="email" type="text" id="text" placeholder="email or username or phone number"><br><br>
+        <input name="password" type="password" id="text"placeholder="password"><br><br>
+        <div type="submit"  href="login.html">
+          <button class="btn btn-outline-success" type="submit" id="text">Log in</button></form>
+        </div>
+        <div style="padding: center;">
+        <a href="forget1.html"><strong>Forget Password?</strong></a>
+        <a href="signup11.html"><strong>Sign up to Social Link</strong></a>
+</body>
 </html>
