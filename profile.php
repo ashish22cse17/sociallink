@@ -1,6 +1,34 @@
 <?php
 session_start();
-print_r($_SESSION);
+//print_r($_SESSION);
+include("classes/connect.php");
+include("classes/login.php");
+include("classes/user.php");
+
+
+//check if user is logged in
+if(isset($_SESSION['social_userid'])&& is_numeric($_SESSION['social_userid'])){
+  $id=$_SESSION['social_userid'];
+  $login= new Login();
+  $result=$login->check_login($id);
+  if($result){
+    //retrive user data
+    $user=new User();
+    $user_data=$user->get_data($id);
+    if(!$user_data){
+      header("location:login.php");
+      die;
+    }
+  }
+  else{
+    header("location:login.php");
+    die;
+  }
+}
+else{
+  header("location:login.php");
+  die;
+}
 ?>
 
 <!doctype html>
@@ -152,7 +180,7 @@ margin-left: 110px;
                   <li><a class="dropdown-item" href="#">Account Security</a></li>
                   <li><a class="dropdown-item" href="#">privacy Settings</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Log out</a></li>
+                  <li><a class="dropdown-item" href="logout.php">Log out</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -191,9 +219,9 @@ margin-left: 110px;
         </div>
       </nav>
 <div id="page">
-  <picture><a href="sharu.jpg">
-  <img src="sharu.jpg" alt="" id="dp"></a></picture>
-  <div> <h4>Sheru</h4></div>
+  <picture><a href="<?php echo $user_data['profile_pic']?>">
+  <img src="<?php echo $user_data['profile_pic']?>" alt="" id="dp"></a></picture>
+  <div> <h4><?php echo $user_data['first_name']. " ".$user_data['last_name']?></h4></div>
   <div><h6>1 Follower  1 Following </h6></div>
   <button class="btn btn-outline-success" type="submit"> Add Status</button>
   <button class="btn btn-outline-success" type="submit">Profile Picture</button>
@@ -213,7 +241,7 @@ margin-left: 110px;
   <h2 style="margin-left: 50px ;">Recent Posts:-</h2>
   <div id="homepage2">
     <div>
- <img src="sharu.jpg" alt="" style="display:block; border-radius: 50%; height:55px;width: 55px;"><a style="display: inline-block;"><h4>Sheru</h4>28 minute ago</a></div>
+ <img src="<?php echo $user_data['profile_pic']?>" alt="" style="display:block; border-radius: 50%; height:55px;width: 55px;"><a style="display: inline-block;"><h4><?php echo $user_data['first_name']. " ".$user_data['last_name']?></h4>28 minute ago</a></div>
 <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi aperiam reiciendis maxime magni fugit ex doloribus inventore mollitia culpa alias vero molestias, dolores quibusdam, voluptatibus animi vel natus amet aspernatur.</div>
 <div>
   <button id="like" >Like</button>

@@ -6,6 +6,7 @@ $first_name="";
 $last_name="";
 $gender="";
 $email="";
+$profile_pic="";
 
 if($_SERVER['REQUEST_METHOD']  == 'POST')
 {
@@ -24,6 +25,8 @@ if($_SERVER['REQUEST_METHOD']  == 'POST')
    $gender=$_POST['gender'];
    $email=$_POST['email'];
    $password=$_POST['password'];
+   $profile_pic=$_POST['profile_pic'];
+
 }
 ?>
 <!doctype html>
@@ -35,7 +38,7 @@ if($_SERVER['REQUEST_METHOD']  == 'POST')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
   <style>
-  #photo{
+  #photo2{
             margin-top: 10px;
             margin-left: 7px;    
         height: 75px;
@@ -126,6 +129,8 @@ if($_SERVER['REQUEST_METHOD']  == 'POST')
           <input  name="email"  type="text" id="text" placeholder="email or phone number" required><br><br>
           <input name="password"  type="password" id="text"placeholder="Password" required><br><br>
           <input type="password2" id="text"placeholder="Comfirm Password" required><br><br>
+          <div style="padding: center;">Profile Picture:</div>
+        <input   class="btn btn-outline-success" id="text" type="file" name="profile_pic"></input><br><br>
           <button class="btn btn-outline-success" type="submit" id="text">Sign up</button>
               </form>
              </div>

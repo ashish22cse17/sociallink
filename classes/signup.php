@@ -19,10 +19,11 @@ class Signup
         $password = $data['password'];
         $url_address = strtolower($first_name) . strtolower($last_name);
         $userid = $this->create_userid($data); // Call the create_userid() method of the same class
+        $profile_pic=$data['profile_pic'];
 
         $query = "INSERT INTO users 
-            (userid, first_name, last_name, gender, email, password, url_address)
-            VALUES ('$userid', '$first_name', '$last_name', '$gender', '$email', '$password', '$url_address')";
+            (userid, first_name, last_name, gender, email, password, url_address,profile_pic )
+            VALUES ('$userid', '$first_name', '$last_name', '$gender', '$email', '$password', '$url_address','$profile_pic')";
 
         $DB = new Database();
         $DB->save($query);

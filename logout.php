@@ -1,0 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['social_userid'])){
+    $_SESSION['social_userid']=NULL;
+    unset($_SESSION['social_userid']);
+}
+header("location:login.php");
+die;
+?>
