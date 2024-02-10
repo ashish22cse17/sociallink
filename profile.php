@@ -159,9 +159,9 @@ margin-left: 110px;
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"  >
         <div class="container-fluid">
           <a class="navbar-brand" href="home.html" ><img src="logo.jpg" style="width: 5rem; height: 5rem;" alt="logo"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
+          </button> -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
@@ -211,7 +211,7 @@ margin-left: 110px;
                 <div ><a href="chats.html">
                 <button id="button"><img src="chat.png" alt="" id="photo"><label>Chats</label></a></button></div>
                 <div ><a href="notification.html">
-                <button id="button"><img src="noti.png" alt="" id="photo2"><label>Notifications</label></a></button></div>
+                <button id="button"><img src="noti.png" alt="" id="photo"><label>Notifications</label></a></button></div>
                 <div><a href="profile.html">
                 <button id="button"><img src="profile.png" alt="" id="photo"><label>Profile</label></a></button></div>
             </ul>
